@@ -1,0 +1,1 @@
+<?php require "../config/database.php"; $db = new Database(); $conn = $db->getConnection(); $stmt = $conn->query("SELECT DISTINCT mail_type FROM letters"); print_r($stmt->fetchAll(PDO::FETCH_ASSOC)); ?>

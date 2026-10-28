@@ -1,0 +1,201 @@
+/* ============================================================
+   Modern Compact No-Scroll Sidebar System (Spacious & Balanced)
+   ============================================================ */
+
+.sidebar {
+    width: 270px;
+    background: linear-gradient(180deg, #09192f 0%, #0d2847 60%, #0a1f3d 100%);
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 100;
+    box-shadow: 4px 0 24px rgba(10, 31, 61, 0.2);
+    border-right: 1px solid rgba(212, 175, 55, 0.15);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(212, 175, 55, 0.2) transparent;
+}
+
+/* Minimal sleek scrollbar for ultra-small windows */
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.25);
+    border-radius: 2px;
+}
+
+/* Header - Logo positioned high with balanced spacing */
+.sidebar-header {
+    padding: 11px 14px 9px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.logo-circle {
+    width: 48px;
+    height: 48px;
+    background: #ffffff;
+    border-radius: 50%;
+    margin: 0 auto 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--gold, #d4af37);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.logo-circle:hover {
+    transform: scale(1.04);
+}
+
+.logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.sidebar-header h3 {
+    font-size: 0.90rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3px;
+    line-height: 1.2;
+    letter-spacing: 0.2px;
+}
+
+.user-info {
+    font-size: 0.72rem;
+    color: var(--gold-light, #f4d03f);
+    font-weight: 600;
+    background: rgba(212, 175, 55, 0.12);
+    padding: 2.5px 10px;
+    border-radius: 10px;
+    display: inline-block;
+    line-height: 1.3;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Menu Container */
+.sidebar-menu {
+    flex: 1;
+    padding: 6px 0 8px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+}
+
+/* Clear Logical Group Dividers with comfortable spacing */
+.menu-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.07);
+    margin: 6px 14px;
+    flex-shrink: 0;
+}
+
+/* Nav Items with generous clickable area & clear spacing */
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 16px;
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 0.18s ease;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    line-height: 1.25;
+    white-space: nowrap;
+    border-radius: 0 6px 6px 0;
+    margin: 1px 0;
+}
+
+.menu-item .menu-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border-left-color: var(--gold, #d4af37);
+    padding-left: 19px;
+}
+
+.menu-item.active {
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.05));
+    color: #ffffff;
+    border-left-color: var(--gold, #d4af37);
+    font-weight: 700;
+}
+
+/* Submenu with balanced spacing */
+.submenu {
+    display: none;
+    background: rgba(0, 0, 0, 0.24);
+    border-radius: 6px;
+    margin: 3px 8px;
+    padding: 3px 0;
+}
+
+.submenu.active {
+    display: block;
+}
+
+.submenu .menu-item {
+    padding: 5px 12px 5px 28px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.submenu .menu-item:hover {
+    padding-left: 30px;
+}
+
+/* Logout item placed naturally with Profile */
+.menu-item.logout {
+    color: #fca5a5;
+    margin-top: 1px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.menu-item.logout:hover {
+    background: rgba(239, 68, 68, 0.18);
+    color: #fecaca;
+    border-left-color: #ef4444;
+}
+
+@media (max-width: 992px) {
+    .sidebar { width: 230px; }
+    .main-content { margin-left: 230px; }
+    .menu-item { font-size: 0.82rem; padding: 5px 12px; }
+}
+
+@media (max-width: 768px) {
+    .sidebar { transform: translateX(-100%); }
+    .sidebar.show { transform: translateX(0); }
+    .main-content { margin-left: 0; }
+}
